@@ -4,7 +4,7 @@
 FPGA = XILINX
 
 # Altera FPGA board: s10_ref, nalla_pcie
-FPGA_BOARD = 
+FPGA_BOARD = s10_ref
 
 HDR =	src/error.h \
 	src/ext.h \
@@ -24,8 +24,9 @@ SPARSEFLAGS=-Wsparse-all -Wno-decl
 RM ?= rm -f
 
 ifeq ($(FPGA), ALTERA)
-CFLAGS += -I$(ALTERAOCLROOT)/host/include
+CFLAGS += -I$(ALTERAOCLROOT)/host/include20
 LDLIBS = -L$(ALTERAOCLROOT)/board/$(FPGA_BOARD)/linux64/lib -L$(ALTERAOCLROOT)/host/linux64/lib -Wl,--no-as-needed -lOpenCL -ldl -lalteracl -lalterahalmmd
+#LDLIBS += -Wl,--rpath=$ALTERAOCLROOT/linux64/lib
 
 ifeq ($(FPGA_BOARD), s10_ref)
 LDLIBS += -laltera_s10_ref_mmd
