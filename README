@@ -6,3 +6,4 @@ crash on platform-unsupported properties (e.g. 1.2 properties on 1.1
 platforms).
 
 Add building support FPGA environment (XILINX and INTEL/ALTERA).
+This can be used for checking FPGA environment setup.
